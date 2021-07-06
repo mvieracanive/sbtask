@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Menú</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body th:fragment="content">
+        <a th:href='@{/teatro}'>Administrar Teatros</a>
+        <br/>
+        <a sec:authorize="hasAuthority('ADMINISTRADOR')" th:href='@{/usuario}'>Administrar Usuarios</a>
+        <br/>
+    </body>
+</html>

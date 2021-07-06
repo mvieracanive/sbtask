@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Administrar butacas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <style>
+            .Visible {
+                display: block;
+            }
+            .NotVisible {
+                display: none;
+            }
+        </style>
+
+        <h1>Administrar butacas</h1>
+        <table>
+            <th:block th:each="p:${obj}">
+                <tr>
+                    <td th:text="${p.fila}"></td>
+                    <td th:text="${p.no}"></td>
+                    <td><a sec:authorize="hasAuthority('ADMINISTRADOR')" th:href="@{'/butaca/delete/'+${p.id}+'/'+${teatro.id}}">Eliminar</a></td>
+                    <td><a sec:authorize="hasAuthority('ADMINISTRADOR')" th:href="@{'/butaca/update/'+${p.id}+'/'+${teatro.id}}">Editar</a></td>
+                    <td>
+                        <div th:class="${p.vendida} ? 'Visible' : 'NotVisible'">
+                            Vendida
+                        </div>
+                        <div th:class="${p.vendida} == null or !${p.vendida} ? 'Visible' : 'NotVisible'">
+                            <a th:href="@{'/butaca/vender/'+${p.id}+'/'+${teatro.id}}">Vender</a>
+                        </div>
+                        
+                    </td>
+                </tr>
+            </th:block>
+        </table>
+
+        <br/>
+        
+        <a sec:authorize="hasAuthority('ADMINISTRADOR')" th:href="@{'/butaca/blankform/'+${teatro.id}}">Nueva butaca</a>
+    </body>
+</html>

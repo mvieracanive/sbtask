@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Editar Teatro</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <h1>Editar Teatro</h1>
+
+        <form method="POST" th:action="@{/teatro/save}" th:object="${obj}">
+            <input type="hidden" th:field="*{id}" th:value="*{id}"/>
+            <input placeholder="Nombre" name="nombre" th:field="*{nombre}" th:value="*{nombre}"/><br/>
+            
+            <br>
+            <input type="submit" value="Guardar"/>
+        </form>
+
+        <h4><span th:text="${obj.butacas} ? 'Butacas' : '' " /></h4>
+        <div style="margin: 10px; padding: 3px;">
+            <table>
+                <th:block th:each="p:${obj.butacas}">
+                    <tr>
+                        <td th:text="${p.fila}"></td>
+                        <td th:text="${p.no}"></td>
+                    </tr>
+                </th:block>
+            </table>      
+        </div>
+        
+    </body>
+</html>

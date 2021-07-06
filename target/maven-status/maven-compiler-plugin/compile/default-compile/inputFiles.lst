@@ -1,0 +1,11 @@
+/home/maia/E_Projects/Curso Spring/temas/src/main/java/com/example/etecsa/entities/Factura.java
+/home/maia/E_Projects/Curso Spring/temas/src/main/java/com/example/etecsa/entities/Contrato.java
+/home/maia/E_Projects/Curso Spring/temas/src/main/java/com/example/etecsa/services/ContratoServiceImpl.java
+/home/maia/E_Projects/Curso Spring/temas/src/main/java/com/example/etecsa/controllers/facturaController.java
+/home/maia/E_Projects/Curso Spring/temas/src/main/java/com/example/etecsa/EtecsaApplication.java
+/home/maia/E_Projects/Curso Spring/temas/src/main/java/com/example/etecsa/services/IFacturaService.java
+/home/maia/E_Projects/Curso Spring/temas/src/main/java/com/example/etecsa/services/IContratoService.java
+/home/maia/E_Projects/Curso Spring/temas/src/main/java/com/example/etecsa/repositories/IFacturaRepo.java
+/home/maia/E_Projects/Curso Spring/temas/src/main/java/com/example/etecsa/controllers/contratoController.java
+/home/maia/E_Projects/Curso Spring/temas/src/main/java/com/example/etecsa/repositories/IContratoRepo.java
+/home/maia/E_Projects/Curso Spring/temas/src/main/java/com/example/etecsa/services/FacturaServiceImpl.java

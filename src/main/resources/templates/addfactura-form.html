@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Addicionar factura a contrato</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <h1>Addicionar factura a contrato</h1>
+        <h3>Número de contrato: <span th:text="${contrato.numero}" /> </h3>
+        
+        <form th:action="@{'/contrato/saveFacturas/'+${contrato.id}}" th:object="${contrato}" method="post">
+            <p>
+                <label>Facturas:
+                    <input type="checkbox" name="facturas" th:checked="${flag} ? 'checked' : ''"
+                        th:each="factura : ${facturas}"
+                        th:text="${factura.numero}"
+                        th:value="${factura.id}"
+                        th:field="*{facturas}"
+                    />
+                </label>
+            </p>
+            <input type="submit" value="adicionar"/>
+        </form>  
+        
+    </body>
+</html>

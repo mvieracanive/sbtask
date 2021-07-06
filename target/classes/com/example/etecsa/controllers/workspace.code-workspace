@@ -1,0 +1,20 @@
+{
+  "folders": [
+	{
+		"path": "../../../../../../../../.."
+	},
+	{
+		"path": "../../../../../../../../tema2"
+	},
+	{
+		"path": "../../../../../../../../tema1"
+	}
+],
+  "settings": {
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.project.sourcePaths": [
+      ""
+    ],
+    "maven.view": "flat"
+  }
+}

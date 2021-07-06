@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Gestionar Usuarios</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Gestionar usuarios</h1>
+        <table>
+            <th:block th:each="p:${obj}">
+                <tr>
+                    <td th:text="${p.userName}"></td>
+                    <td th:text="${p.rol}"></td>
+                    <td th:text="${p.active} ? 'Activo' : 'No activo'"></td>
+                    
+                    <td><a th:href="@{'/usuario/delete/'+${p.id}}">Eliminar</a></td>
+                    <td><a th:href="@{'/usuario/update/'+${p.id}}">Editar</a></td>
+                   
+                </tr>
+            </th:block>
+        </table>
+        <br>
+        <a th:href='@{/usuario/blankform}'>Nuevo usuario</a>
+        
+    </body>
+</html>

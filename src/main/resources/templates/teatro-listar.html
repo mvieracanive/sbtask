@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Gestionar teatros</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Gestionar teatros</h1>
+        <table>
+            <th:block th:each="p:${obj}">
+                <tr>
+                    <td th:text="${p.nombre}"></td>
+                    
+                    <td><a sec:authorize="hasAuthority('ADMINISTRADOR')"  th:href="@{'/teatro/delete/'+${p.id}}">Eliminar</a></td>
+                    <td><a sec:authorize="hasAuthority('ADMINISTRADOR')" th:href="@{'/teatro/update/'+${p.id}}">Editar</a></td>
+                    <td><a th:href="@{'/butaca/'+${p.id}}">Administrar butacas</a></td>
+                    <td>
+                        Butacas vendidas: <span th:text="${p.sold}" />                        
+                    </td>
+                    <td>
+                        Recaudado: <span th:text="${p.recaudado}" />                        
+                    </td>
+                    <td>
+                        Butacas de fumadores: <span th:text="${p.fumadores}" />                        
+                    </td>
+                </tr>
+            </th:block>
+        </table>
+        <br>
+        <a sec:authorize="hasAuthority('ADMINISTRADOR')" th:href='@{/teatro/blankform}'>Nuevo teatro</a>
+        
+    </body>
+</html>

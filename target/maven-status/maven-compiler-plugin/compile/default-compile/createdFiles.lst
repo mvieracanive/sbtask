@@ -1,0 +1,4 @@
+com/example/etecsa/EtecsaApplication.class
+com/example/etecsa/controllers/facturaController.class
+com/example/etecsa/services/IFacturaService.class
+com/example/etecsa/entities/Factura.class

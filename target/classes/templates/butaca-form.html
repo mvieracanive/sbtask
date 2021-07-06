@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Editar Butaca</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <style>
+            .Visible {
+                display: block;
+            }
+            .NotVisible {
+                display: none;
+            }
+        </style>
+        <script type="text/javascript"> 
+            function onChangePlatea(){
+                
+                var v = document.getElementById("ppll");
+                var vb = document.getElementById("balcon");
+                //alert(v.className);
+                if (v.className == "Visible"){
+                    v.className = "NotVisible";
+                    vb.className = "Visible";
+                }
+                else {
+                    v.className = "Visible";
+                    vb.className = "NotVisible";
+                }                    
+            }
+            function onChangeBalcon(){
+                
+                var v = document.getElementById("balcon");
+                var vb = document.getElementById("ppll");
+                //alert(v.className);
+                if (v.className == "Visible"){
+                    v.className = "NotVisible";
+                    vb.className = "Visible";
+                }
+                else {
+                    v.className = "Visible";
+                    vb.className = "NotVisible";
+                } 
+            }
+        </script>
+
+        <h1>Nueva butaca</h1>
+
+        <h3>Teatro: <span th:text="${teatro.nombre}" /></h3>
+        
+        <form method="POST" th:action="@{'/butaca/save/'+${teatro.id}}" th:object="${obj}">
+            <input type="hidden" th:field="*{id}" th:value="*{id}"/>
+            <input type="hidden" th:field="*{vendida}" th:value="*{vendida}"/>
+            <input placeholder="Fila" name="fila" th:field="*{fila}" th:value="*{fila}"/><br/>
+            <input placeholder="Número" name="no" th:field="*{no}" th:value="*{no}"/><br/>
+            
+            <br/>
+            
+            <div class="form-group">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="o1" name="o1" class="custom-control-input" value="1" th:field="*{platea}" th:onchange="onChangePlatea()">
+                    <label class="custom-control-label" for="o1">Platea</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="o2" name="o2" class="custom-control-input" value="0" th:field="*{platea}" th:onchange="onChangeBalcon()">
+                    <label class="custom-control-label" for="o2">Balcón</label>
+                </div>
+            </div>
+
+            <br/>
+            
+            <div id="ppll" th:class="*{platea} ? 'Visible' : 'NotVisible'">
+                <input type="checkbox" name="protocolo" th:checked="*{protocolo}" /> De protocolo
+            </div>
+
+            <div id="balcon" th:class="*{platea} != null and !*{platea} ? 'Visible' : 'NotVisible'">
+                <input type="checkbox" name="fumador" th:checked="*{fumador}" /> Área de fumador
+                <br/>
+                <input placeholder="Número de balcón" name="balcon" th:field="*{balcon}" th:value="*{balcon}"/><br/>
+            </div>
+            
+            <br/>
+
+            <input type="submit" value="Guardar"/>
+        </form>      
+    </body>
+</html>
